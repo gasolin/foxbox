@@ -17,8 +17,8 @@ Prepare. Clone https://github.com/gasolin/foxbox.git via `git clone` command to 
 
 Enter the foxbox folder and start the setup process
 
-  $ cd foxbox
-  $ vagrant up
+    $ cd foxbox
+    $ vagrant up
 
 It will take time to download and setup the environment. Go have a cup of coffee.
 
@@ -26,32 +26,32 @@ It will take time to download and setup the environment. Go have a cup of coffee
 
 Step 1: Use your VM
 
-  $ vagrant ssh
+    $ vagrant ssh
 
 Go Out
 
-  $ exit
-  $ vagrant halt
+    $ exit
+    $ vagrant halt
 
 
 Step 2: Build gecko
 
-  $ cd mozilla-central
-  $ make -f client.mk build
+    $ cd mozilla-central
+    $ make -f client.mk build
 
 Build Gaia
 
-  $ cd gaia
-  $ make DEBUG=1
+    $ cd gaia
+    $ make DEBUG=1
 
 Step 3:
 
 To test Firefox, you'll need the graphical display of VirtualBox,
 so power up the machine, and log in with the account "vagrant", password "vagrant".
 
-  $ startx
-  $ cd mozilla-central
-  $ obj-x86-64-unknown-linux-gnu/dist/bin/firefox
+    $ startx
+    $ cd mozilla-central
+    $ obj-x86-64-unknown-linux-gnu/dist/bin/firefox
 
 
 # Goal
