@@ -29,47 +29,63 @@ apt-get install -y autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-mu
 ccache --max-size 3GB
 
 # Set the permission filters to the right devices.
-# cat <<EOF >> /etc/udev/rules.d/android.rules
-# SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", MODE="0666", GROUP="vagrant"
-# SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", MODE="0666", GROUP="vagrant"
-# EOF
+# Source http://developer.android.com/tools/device.html
 cat <<EOF >> /etc/udev/rules.d/51-android.rules
-#Geekphone
+#Acer
+SUBSYSTEM=="usb", ATTR{idVendor}=="0502", MODE="0666", GROUP="vagrant"
+#ASUS
+SUBSYSTEM=="usb", ATTR{idVendor}=="0b05", MODE="0666", GROUP="vagrant"
+#Dell
+SUBSYSTEM=="usb", ATTR{idVendor}=="413c", MODE="0666", GROUP="vagrant"
+#Foxconn
+SUBSYSTEM=="usb", ATTR{idVendor}=="0489", MODE="0666", GROUP="vagrant"
+#Garmin-Asus
+SUBSYSTEM=="usb", ATTR{idVendor}=="091e", MODE="0666", GROUP="vagrant"
+#Google
 SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="vagrant"
-#Acer      0502
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0502", MODE="0666", GROUP="vagrant"
-#Dell     413c
-SUBSYSTEM=="usb", SYSFS{idVendor}=="413c", MODE="0666", GROUP="vagrant"
-#Foxconn     0489
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0489", MODE="0666", GROUP="vagrant"
-#Asus     091E
-SUBSYSTEM=="usb", SYSFS{idVendor}=="091e", MODE="0666", GROUP="vagrant"
-#HTC     0bb4
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0bb4", MODE="0666", GROUP="vagrant"
-#Huawei     12d1
-SUBSYSTEM=="usb", SYSFS{idVendor}=="12d1", MODE="0666", GROUP="vagrant"
-#Kyocera     0482
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0482", MODE="0666", GROUP="vagrant"
-#LG     1004
-SUBSYSTEM=="usb", SYSFS{idVendor}=="1004", MODE="0666", GROUP="vagrant"
-#Motorola     22b8
-SUBSYSTEM=="usb", SYSFS{idVendor}=="22b8", MODE="0666", GROUP="vagrant"
-#Nvidia     0955
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0955", MODE="0666", GROUP="vagrant"
-#Pantech     10A9
-SUBSYSTEM=="usb", SYSFS{idVendor}=="10A9", MODE="0666", GROUP="vagrant"
-#Samsung     04e8
-SUBSYSTEM=="usb", SYSFS{idVendor}=="04e8", MODE="0666", GROUP="vagrant"
-#Sharp     04dd
-SUBSYSTEM=="usb", SYSFS{idVendor}=="04dd", MODE="0666", GROUP="vagrant"
-#Sony Ericsson     0fce
-SUBSYSTEM=="usb", SYSFS{idVendor}=="0fce", MODE="0666", GROUP="vagrant"
-#ZTE     19d2
-SUBSYSTEM=="usb", SYSFS{idVendor}=="19d2", MODE="0666", GROUP="vagrant"
-#TCL
+#HTC
+SUBSYSTEM=="usb", ATTR{idVendor}=="0bb4", MODE="0666", GROUP="vagrant"
+#Huawei
+SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="0666", GROUP="vagrant"
+#K-Touch
+SUBSYSTEM=="usb", ATTR{idVendor}=="24e3", MODE="0666", GROUP="vagrant"
+#KT Tech
+SUBSYSTEM=="usb", ATTR{idVendor}=="2116", MODE="0666", GROUP="vagrant"
+#Kyocera
+SUBSYSTEM=="usb", ATTR{idVendor}=="0482", MODE="0666", GROUP="vagrant"
+#Lenevo
+SUBSYSTEM=="usb", ATTR{idVendor}=="17EF", MODE="0666", GROUP="vagrant"
+#LG
+SUBSYSTEM=="usb", ATTR{idVendor}=="1004", MODE="0666", GROUP="vagrant"
+#Motorola
+SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="vagrant"
+#NEC
+SUBSYSTEM=="usb", ATTR{idVendor}=="0409", MODE="0666", GROUP="vagrant"
+#Nvidia
+SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0666", GROUP="vagrant"
+#OTGV
+SUBSYSTEM=="usb", ATTR{idVendor}=="2257", MODE="0666", GROUP="vagrant"
+#Pantech
+SUBSYSTEM=="usb", ATTR{idVendor}=="10A9", MODE="0666", GROUP="vagrant"
+#Philips
+SUBSYSTEM=="usb", ATTR{idVendor}=="10A9", MODE="0666", GROUP="vagrant"
+#PMC-Sierra
+SUBSYSTEM=="usb", ATTR{idVendor}=="04da", MODE="0666", GROUP="vagrant"
+#Qualcomm
 SUBSYSTEM=="usb", ATTR{idVendor}=="05c6", MODE="0666", GROUP="vagrant"
+#SK Telesys
+SUBSYSTEM=="usb", ATTR{idVendor}=="1f53", MODE="0666", GROUP="vagrant"
+#Samsung
+SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="vagrant"
+#Sharp
+SUBSYSTEM=="usb", ATTR{idVendor}=="04dd", MODE="0666", GROUP="vagrant"
+#Sony Ericsson
+SUBSYSTEM=="usb", ATTR{idVendor}=="0fce", MODE="0666", GROUP="vagrant"
+#Toshiba
+SUBSYSTEM=="usb", ATTR{idVendor}=="0930", MODE="0666", GROUP="vagrant"
+#ZTE
+SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", MODE="0666", GROUP="vagrant"
 EOF
-#chmod a+r /etc/udev/rules.d/android.rules
 chmod a+r /etc/udev/rules.d/51-android.rules
 service udev restart
 
