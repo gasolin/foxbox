@@ -17,14 +17,17 @@ VAGRANTFILE_API_VERSION = "2"
 # * ./configure.sh {your device}
 # * ./build.sh
 
-echo "get B2G"
-rm B2G/README.md
-git clone https://github.com/mozilla-b2g/B2G.git B2G
-
 $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
 apt-get update
+
+echo "fetch B2G repository"
+apt-get install -y git-core
+rm B2G/README.md
+git clone https://github.com/mozilla-b2g/B2G.git B2G
+
+echo "install prerequisite libraries"
 apt-get install -y python-software-properties
 add-apt-repository -y ppa:nilarimogard/webupd8
 apt-get update
