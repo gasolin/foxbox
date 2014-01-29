@@ -16,6 +16,11 @@ VAGRANTFILE_API_VERSION = "2"
 # * cd B2G
 # * ./configure.sh {your device}
 # * ./build.sh
+
+echo "get B2G"
+rm B2G/README.md
+git clone https://github.com/mozilla-b2g/B2G.git B2G
+
 $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
