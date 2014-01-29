@@ -1,9 +1,13 @@
-foxbox
+FoxBox
 =========
 
-FirefoxOS Build Environment in a VM.
+FirefoxOS Build Environment in a VM (Virtual Machine).
 Powered by vagrant and virtualbox.
 
+## Features
+
+- Edit source code in your main environment with any editor
+- Compile in VM without setup environment and required libraries
 
 ## Prerequisite
 
@@ -13,7 +17,7 @@ You have to download and install [Virtualbox](https://www.virtualbox.org/wiki/Do
 
 Prepare:
 
-Clone https://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS) then enter the foxbox folder:
+[Download](https://github.com/gasolin/foxbox/archive/master.zip) or Clone https://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
 
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
@@ -28,27 +32,44 @@ It will take time to download and setup the environment. Go have a cup of coffee
 
 (If foxbox is stablized, we'd like to ship a preconfigured box to save your time and bandwidth)
 
-Step 1: Use your VM
+### Step 1: Use your VM
+
+Connect to VM
 
     $ vagrant ssh
 
-Go Out
+Disconnect to VM
 
     $ exit
     $ vagrant halt
 
 
-Step 2: Build gecko
+### Step 2: Build FirefoxOS
 
-    $ cd mozilla-central
-    $ make -f client.mk build
+#### Build whole FirefoxOS (B2G)
 
-Build Gaia
+    $ cd B2G
+    $ ./configure.sh {your device}
+    $ ./build.sh
+
+refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
+
+Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
+
+#### Build Gaia
 
     $ cd gaia
     $ make DEBUG=1
 
-Step 3:
+refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
+
+#### Build gecko
+
+    $ cd mozilla-central
+    $ make -f client.mk build
+
+
+### Step 3 (TBD):
 
 To test Firefox, you'll need the graphical display of VirtualBox,
 so power up the machine, and log in with the account "vagrant", password "vagrant".
@@ -62,11 +83,8 @@ so power up the machine, and log in with the account "vagrant", password "vagran
 
 ## Short term
 
-- share source with NFS
 - enable developer jump into gaia development without pain
-  - get source
   - get firefox nightly
-
 
 ## Mid term
 
