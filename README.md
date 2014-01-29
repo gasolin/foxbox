@@ -36,7 +36,10 @@ It will take time to download and setup the environment. Go have a cup of coffee
 
 Connect to VM
 
+    $ B2G_PATH=<local path> vagrant up
     $ vagrant ssh
+
+In linux/mac you could use `${PWD}/B2G` instead of real <local path>.
 
 Disconnect to VM
 
