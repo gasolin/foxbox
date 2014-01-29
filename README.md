@@ -11,14 +11,18 @@ You have to download and install [Virtualbox](https://www.virtualbox.org/wiki/Do
 
 ## How to Run
 
-Prepare. Clone https://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS):
+Prepare:
 
-  $ git clone https://github.com/gasolin/foxbox.git
+Clone https://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS) then enter the foxbox folder:
 
-Enter the foxbox folder and start the setup process
-
+    $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
-    $ vagrant up
+
+On linux or mac, run `configure.sh`. The script will download B2G repository to your Host OS and start vagrant to setup VM for you.
+
+On other platform, start the setup process
+
+    $ B2G_PATH=<local path> vagrant up
 
 It will take time to download and setup the environment. Go have a cup of coffee.
 
