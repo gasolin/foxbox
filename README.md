@@ -39,7 +39,7 @@ Connect to VM
     $ B2G_PATH=<local path> vagrant up
     $ vagrant ssh
 
-In linux/mac you could use `${PWD}/B2G` instead of real <local path>.
+In linux/mac you could use `${PWD}/B2G` instead of real `<local path>`.
 
 Disconnect to VM
 
