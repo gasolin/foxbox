@@ -6,7 +6,7 @@ Powered by vagrant and virtualbox.
 
 ## Features
 
-- Edit source code in your main environment with any editor
+- Edit source code in your host machine with any editor and have the files sync into the guest machine.
 - Compile in VM without setup environment and required libraries
 
 ## Prerequisite
