@@ -21,6 +21,7 @@ $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
 apt-get update
+apt-get install -y git-core
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
 echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
@@ -30,9 +31,17 @@ echo "██║     ╚██████╔╝██╔╝ ██╗███�
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "          Fetching B2G repository                 "
 
-apt-get install -y git-core
-rm B2G/README.md
-git clone https://github.com/mozilla-b2g/B2G.git B2G
+if [ -d B2G/.git ]
+then
+    echo "The git directory exists."
+    echo "update B2G repository"
+    cd B2G
+    git pull
+    cd ..
+else
+    rm B2G/README.md
+    git clone https://github.com/mozilla-b2g/B2G.git B2G
+fi
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
 echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
@@ -59,6 +68,11 @@ echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚════�
 echo "  Set the permission filters to the right devices "
 
 # Source http://developer.android.com/tools/device.html
+if [ -f /etc/udev/rules.d/51-android.rules ]
+then
+    rm /etc/udev/rules.d/51-android.rules
+fi
+
 cat <<EOF >> /etc/udev/rules.d/51-android.rules
 #Acer
 SUBSYSTEM=="usb", ATTR{idVendor}=="0502", MODE="0666", GROUP="vagrant"
@@ -133,13 +147,6 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 apt-get install -y oracle-java7-installer
 
-echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
-echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
-echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
-echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
-echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
-echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
-echo "              Vagrant Configuration               "
 
 SCRIPT
 
