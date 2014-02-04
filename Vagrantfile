@@ -20,6 +20,8 @@ VAGRANTFILE_API_VERSION = "2"
 $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
+# firefox nightly repo
+add-apt-repository ppa:ubuntu-mozilla-daily/ppa
 apt-get update
 apt-get install -y git-core
 
@@ -147,6 +149,20 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 apt-get install -y oracle-java7-installer
 
+echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+echo "                Enable GUI                        "
+#apt-get install -y x-window-system gnome-core
+# xorg xfce4 menu
+apt-get install -y x-window-system xfce4 firefox-trunk
+
+# create helper scripts
+echo "sudo startxfce4&" > gui.sh
+chmod +x gui.sh
 
 SCRIPT
 
