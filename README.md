@@ -88,6 +88,13 @@ To start the GUI (powered by [xfce](http://www.xfce.org/)).
 
 The `firefox nightly` is located in the top left `Applications Menu > internet > Nightly Web Browser`.
 
+[Imgur](http://i.imgur.com/7nhNUC3)
+
+#### GUI Usage Trouble Shooting
+
+If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280896/why-do-i-have-no-prompt-in-terminal-on-xfce-in-ubuntu-12-04). The reason is a color setting found in Edit->Profile Preferences where it said "Colors" and defaulted to "Use colors from system theme". Uncheck it and everything runs fine.
+[Imgur](http://i.imgur.com/iQyztVf)
+
 # Goal
 
 ## Short term
