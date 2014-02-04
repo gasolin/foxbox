@@ -72,22 +72,26 @@ refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
     $ make -f client.mk build
 
 
-### Step 3 (TBD):
+### Step 3: Test in GUI
 
-To test Firefox, you'll need the graphical display of VirtualBox,
-so power up the machine, and log in with the account "vagrant", password "vagrant".
+To test Firefox, you'll need the graphical display of `VirtualBox`. ssh does not support GUI.
+Open `VirtualBox` panel and select the vagrant created `foxbox_default` VM to launch the machine.
+Log in with the account "vagrant", password "vagrant".
+You will see the same console as you run `vagrant ssh`.
 
-    $ startx
-    $ cd mozilla-central
-    $ obj-x86-64-unknown-linux-gnu/dist/bin/firefox
+Then run the command:
 
+    $ ./gui.sh
+
+To start the GUI.
+
+The `firefox nightly` is located in the top left `Applications Menu > internet > Nightly Web Browser`.
 
 # Goal
 
 ## Short term
 
 - enable developer jump into gaia development without pain
-  - get firefox nightly
 
 ## Mid term
 
