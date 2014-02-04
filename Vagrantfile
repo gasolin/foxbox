@@ -203,10 +203,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Enable usb
     v.customize ["modifyvm", :id, "--usb", "on"]
     # Filter the following devices: inari, keon, android
-    # TODO: add more filters
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'inari', '--vendorid', '0x19d2']
-    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'full_keon', '--vendorid', '0x05c6']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'android', '--vendorid', '0x18d1']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'foxconn', '--vendorid', '0x0489']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'hwawei', '--vendorid', '0x12d1']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'lg', '--vendorid', '0x1004']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'qualcomm', '--vendorid', '0x05c6']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'zte', '--vendorid', '0x19d2']
   end
 
 end
