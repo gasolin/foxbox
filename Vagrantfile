@@ -23,7 +23,20 @@ $bootstrap = <<SCRIPT
 # firefox nightly repo
 add-apt-repository ppa:ubuntu-mozilla-daily/ppa
 apt-get update
+
+echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+echo "             Install git and repo                 "
 apt-get install -y git-core
+if [ -f /bin/repo ]
+then
+    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /bin/repo
+    chmod a+x /bin/repo
+fi
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
 echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
@@ -45,14 +58,7 @@ else
     git clone https://github.com/mozilla-b2g/B2G.git B2G
 fi
 
-echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
-echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
-echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
-echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
-echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
-echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "        Install prerequisite libraries            "
-
 apt-get install -y python-software-properties
 add-apt-repository -y ppa:nilarimogard/webupd8
 apt-get update
@@ -160,9 +166,13 @@ echo "                Enable GUI                        "
 # xorg xfce4 menu
 apt-get install -y x-window-system xfce4 firefox-trunk
 
+# clean all unrequired packages
+apt-get autoremove -y
+
 # create helper scripts
 echo "sudo startxfce4&" > gui.sh
-chmod +x gui.sh
+chmod a+x gui.sh
+
 
 SCRIPT
 
@@ -185,11 +195,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ENV['B2G_PATH'], "/home/vagrant/B2G", nfs: true
 
   config.vm.provider "virtualbox" do |v|
+    # Uncomment to Enable GUI
+    #v.gui = true
+
     # Enable 4GB of RAM
     v.customize ["modifyvm", :id, "--memory", "4096"]
     # Enable usb
     v.customize ["modifyvm", :id, "--usb", "on"]
     # Filter the following devices: inari, keon, android
+    # TODO: add more filters
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'inari', '--vendorid', '0x19d2']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'full_keon', '--vendorid', '0x05c6']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'android', '--vendorid', '0x18d1']
