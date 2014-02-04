@@ -8,6 +8,7 @@ Powered by vagrant and virtualbox.
 
 - Edit source code in your host machine with any editor and have the files sync into the guest machine.
 - Compile in VM without setup environment and required libraries
+- Can test Firefox Nightly or B2G Desktop in bundled GUI environment
 
 ## Prerequisite
 
@@ -83,7 +84,7 @@ Then run the command:
 
     $ ./gui.sh
 
-To start the GUI.
+To start the GUI (powered by [xfce](http://www.xfce.org/)).
 
 The `firefox nightly` is located in the top left `Applications Menu > internet > Nightly Web Browser`.
 
