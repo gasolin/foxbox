@@ -195,8 +195,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.synced_folder ENV['B2G_PATH'], "/home/vagrant/B2G", nfs: true
 
   config.vm.provider "virtualbox" do |v|
-    # Uncomment to Enable GUI
-    #v.gui = true
+    # Enable GUI
+    v.gui = true
 
     # Enable 4GB of RAM
     v.customize ["modifyvm", :id, "--memory", "4096"]

@@ -76,15 +76,12 @@ refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
 ### Step 3: Test in GUI
 
 To test Firefox, you'll need the graphical display of `VirtualBox`. ssh does not support GUI.
-Open `VirtualBox` panel and select the vagrant created `foxbox_default` VM to launch the machine.
-Log in with the account "vagrant", password "vagrant".
-You will see the same console as you run `vagrant ssh`.
+Log in with the account "vagrant", password "vagrant" in VM's console.
 
-Then run the command:
+Then run the command To start the GUI (powered by [xfce](http://www.xfce.org/)):
 
     $ ./gui.sh
 
-To start the GUI (powered by [xfce](http://www.xfce.org/)).
 
 The `firefox nightly` is located in the top left `Applications Menu > internet > Nightly Web Browser`.
 
