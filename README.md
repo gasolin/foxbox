@@ -93,6 +93,13 @@ If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280
 
 ![Imgur](http://i.imgur.com/iQyztVf.png)
 
+### To delete the VM
+
+You can run following command to delete the VM anytime.
+
+    $ B2G_PATH=<local path> vagrant destroy
+
+
 # Goal
 
 ## Short term

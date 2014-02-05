@@ -21,7 +21,7 @@ $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
 # firefox nightly repo
-add-apt-repository ppa:ubuntu-mozilla-daily/ppa
+add-apt-repository ppa:ubuntu-mozilla-daily/ppa -y
 apt-get update
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
