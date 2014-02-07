@@ -29,7 +29,7 @@ On other platform, start the setup process
 
     $ B2G_PATH=<local path> vagrant up
 
-You have to enter password in Linux/mac to proceed the share.
+You have to enter password in Linux/Mac to proceed share the NFS folders.
 
 It will take time to download and setup the environment. Go have a cup of coffee.
 
@@ -141,4 +141,8 @@ As it seems `-f` or `--force-broken` flag allows it to recover from network erro
 
 ## Credit
 
-Foxbox is based on https://gist.github.com/yzen/7723421 and https://github.com/jdm/foxinabox
+Foxbox is based on the [gist](https://gist.github.com/yzen/7723421) by Yura Zenevich.
+
+## License
+
+FoxBox follow [MPL](http://www.mozilla.org/MPL/) License.

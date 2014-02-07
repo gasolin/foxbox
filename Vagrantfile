@@ -19,8 +19,15 @@ VAGRANTFILE_API_VERSION = "2"
 
 $bootstrap = <<SCRIPT
 
-# Installing all build prerequisites.
-# firefox nightly repo
+echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+echo "       Installing all build prerequisites         "
+apt-get update
+# add firefox nightly repo
 apt-get install python-software-properties -y
 add-apt-repository ppa:ubuntu-mozilla-daily/ppa -y
 apt-get update
@@ -60,7 +67,6 @@ else
 fi
 
 echo "        Install prerequisite libraries            "
-apt-get install -y python-software-properties
 add-apt-repository -y ppa:nilarimogard/webupd8
 apt-get update
 apt-get install -y autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-multilib git ia32-libs lib32ncurses5-dev lib32z1-dev libgl1-mesa-dev libx11-dev libasound2 make zip android-tools-adb
