@@ -21,6 +21,7 @@ $bootstrap = <<SCRIPT
 
 # Installing all build prerequisites.
 # firefox nightly repo
+apt-get install python-software-properties -y
 add-apt-repository ppa:ubuntu-mozilla-daily/ppa -y
 apt-get update
 
