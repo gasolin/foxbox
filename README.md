@@ -145,4 +145,4 @@ Foxbox is based on the [gist](https://gist.github.com/yzen/7723421) by Yura Zene
 
 ## License
 
-FoxBox follow [MPL](http://www.mozilla.org/MPL/) License.
+FoxBox follow [MPL](http://www.mozilla.org/MPL/) 2.0 License.
