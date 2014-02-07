@@ -164,7 +164,9 @@ echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚════�
 echo "                Enable GUI                        "
 #apt-get install -y x-window-system gnome-core
 # xorg xfce4 menu
-apt-get install -y x-window-system xfce4 firefox-trunk
+apt-get install -y x-window-system xfce4
+# get firefox nightly
+apt-get install -y firefox-trunk
 
 # clean all unrequired packages
 apt-get autoremove -y
