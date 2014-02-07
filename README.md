@@ -29,6 +29,8 @@ On other platform, start the setup process
 
     $ B2G_PATH=<local path> vagrant up
 
+You have to enter password in Linux/mac to proceed the share.
+
 It will take time to download and setup the environment. Go have a cup of coffee.
 
 (If foxbox is stablized, we'd like to ship a preconfigured box to save your time and bandwidth)
@@ -87,23 +89,39 @@ The `firefox nightly` is located in the top left `Applications Menu > internet >
 
 ![Imgur](http://i.imgur.com/7nhNUC3.png)
 
-#### GUI Usage Trouble Shooting
+## Trouble Shooting
+
+### GUI Usage
 
 If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280896/why-do-i-have-no-prompt-in-terminal-on-xfce-in-ubuntu-12-04). The reason is a color setting found in Edit->Profile Preferences where it said "Colors" and defaulted to "Use colors from system theme". Uncheck it and everything runs fine.
 
 ![Imgur](http://i.imgur.com/iQyztVf.png)
 
-### To delete the VM
+### Delete the VM
 
 You can run following command to delete the VM anytime.
 
     $ B2G_PATH=<local path> vagrant destroy
 
+### Rerun the configure process
+
+If there's any issue that make the setup process fail. You can rerun the configure process by following command:
+
+    $ B2G_PATH=${PWD}/B2G vagrant reload --provision
+
+### Repo sync failed
+
+According to [StackOverflow](http://stackoverflow.com/questions/16085722/when-running-repo-sync-error-exited-sync-due-to-fetch-errors), invoking following command did the trick:
+
+    $ repo sync -f -j10
+
+As it seems `-f` or `--force-broken` flag allows it to recover from network error and more important recover on broken/missing objects.
 
 # Goal
 
 ## Short term
 
+- enable developer jump into B2G development without pain
 - enable developer jump into gaia development without pain
 
 ## Mid term
