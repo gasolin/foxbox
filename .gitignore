@@ -18,3 +18,5 @@ node_modules
 repo
 .repo/
 B2G/
+gecko/
+gaia/

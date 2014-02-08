@@ -103,6 +103,8 @@ You can run following command to delete the VM anytime.
 
     $ B2G_PATH=<local path> vagrant destroy
 
+The shared folders will be detached and the VM will be deleted. The basic vagrant box and the fetched source code will still exist so you don't have to fetch again.
+
 ### Rerun the configure process
 
 If there's any issue that make the setup process fail. You can rerun the configure process by following command:
