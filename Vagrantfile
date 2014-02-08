@@ -185,6 +185,13 @@ chmod a+x gui.sh
 
 SCRIPT
 
+# Detect if PATH is exist
+if (defined?(ENV['B2G_PATH'])).nil?
+  B2G_PATH = nil
+else
+  B2G_PATH = ENV['B2G_PATH']
+end
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "precise64"
@@ -201,7 +208,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Use B2G_PATH environment variable to sync with vm's /home/vagrant/B2G
   # directory.
-  config.vm.synced_folder ENV['B2G_PATH'], "/home/vagrant/B2G", nfs: true
+  if (B2G_PATH != nil)
+    config.vm.synced_folder B2G_PATH, "/home/vagrant/B2G", nfs: true
+  end
 
   config.vm.provider "virtualbox" do |v|
     # Enable GUI
