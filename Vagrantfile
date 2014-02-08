@@ -185,11 +185,25 @@ chmod a+x gui.sh
 
 SCRIPT
 
-# Detect if PATH is exist
+# Detect if B2G_PATH is exist
 if (defined?(ENV['B2G_PATH'])).nil?
   B2G_PATH = nil
 else
   B2G_PATH = ENV['B2G_PATH']
+end
+
+# Detect if GECKO_PATH is exist
+if (defined?(ENV['GECKO_PATH'])).nil?
+  GECKO_PATH = nil
+else
+  GECKO_PATH = ENV['GECKO_PATH']
+end
+
+# Detect if GAIA_PATH is exist
+if (defined?(ENV['GAIA_PATH'])).nil?
+  GAIA_PATH = nil
+else
+  GAIA_PATH = ENV['GAIA_PATH']
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -206,10 +220,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # change it to something else).
   config.vm.network "private_network", ip: "192.168.50.4"
 
-  # Use B2G_PATH environment variable to sync with vm's /home/vagrant/B2G
+  # Use *_PATH environment variable to sync with vm's /home/vagrant/*
   # directory.
   if (B2G_PATH != nil)
     config.vm.synced_folder B2G_PATH, "/home/vagrant/B2G", nfs: true
+  end
+  if (GECKO_PATH != nil)
+    config.vm.synced_folder GECKO_PATH, "/home/vagrant/gecko", nfs: true
+  end
+  if (GAIA_PATH != nil)
+    config.vm.synced_folder GAIA_PATH, "/home/vagrant/gaia", nfs: true
   end
 
   config.vm.provider "virtualbox" do |v|
