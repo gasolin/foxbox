@@ -166,7 +166,7 @@ echo "██║     ╚██████╔╝██╔╝ ██╗███�
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "              Create helper scripts               "
 
-echo "          Create 'gui.sh' to start GUI            "
+echo "   Create 'gui.sh' to start GUI                   "
 echo "sudo startxfce4&" > gui.sh
 chmod a+x gui.sh
 

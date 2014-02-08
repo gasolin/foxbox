@@ -1,5 +1,7 @@
 FoxBox
-=========
+===========
+
+Version: 0.4
 
 FirefoxOS Build Environment in a VM (Virtual Machine).
 Powered by vagrant and virtualbox.
@@ -40,19 +42,33 @@ It will take time to download and setup the environment. Go have a cup of coffee
 Connect to VM
 
     $ B2G_PATH=<local path> vagrant up
-    $ vagrant ssh
 
 In linux/mac you could use `${PWD}/B2G` instead of real `<local path>`.
+
+Log in with `the account 'vagrant', password 'vagrant'` in VM's console.
 
 Disconnect to VM
 
     $ exit
     $ vagrant halt
 
+Though the VM already popup a separate window. You can still remote access to VM via command:
+
+    $ vagrant ssh
 
 ### Step 2: Build FirefoxOS
 
 #### Build whole FirefoxOS (B2G)
+
+Connect to VM via command
+
+    $ B2G_PATH=<local path> vagrant up
+
+Then FoxBox provide an init script to help you fetch B2G source:
+
+    $ ./init_B2G.sh
+
+Then go to B2G folder and type
 
     $ cd B2G
     $ ./configure.sh {your device}
@@ -62,25 +78,39 @@ refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first
 
 Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
 
-#### Build Gaia
+#### Build Gaia only
+
+Connect to VM via command
+
+    $ GAIA_PATH=<local path> vagrant up
+
+Then FoxBox provide an init script to help you fetch gaia source:
+
+    $ ./init_gaia.sh
+
+Then go to gaia folder and type
 
     $ cd gaia
     $ make DEBUG=1
 
 refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
 
-#### Build gecko
+#### Build Gecko only
 
-    $ cd mozilla-central
+Connect to VM via command
+
+    $ GECKO_PATH=<local path> vagrant up
+
+Then
+
+    $ cd gecko
     $ make -f client.mk build
 
 
 ### Step 3: Test in GUI
 
-To test Firefox, you'll need the graphical display of `VirtualBox`. ssh does not support GUI.
-Log in with the account "vagrant", password "vagrant" in VM's console.
-
-Then run the command To start the GUI (powered by [xfce](http://www.xfce.org/)):
+To test Firefox OS, you'll need the graphical display of VM. ssh does not support GUI.
+Run the command To start the GUI (powered by [xfce](http://www.xfce.org/)):
 
     $ ./gui.sh
 
