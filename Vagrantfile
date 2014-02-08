@@ -46,26 +46,6 @@ then
     chmod a+x /bin/repo
 fi
 
-echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
-echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
-echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
-echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
-echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
-echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
-echo "          Fetching B2G repository                 "
-
-if [ -d B2G/.git ]
-then
-    echo "The git directory exists."
-    echo "update B2G repository"
-    cd B2G
-    git pull
-    cd ..
-else
-    rm B2G/README.md
-    git clone https://github.com/mozilla-b2g/B2G.git B2G
-fi
-
 echo "        Install prerequisite libraries            "
 add-apt-repository -y ppa:nilarimogard/webupd8
 apt-get update
@@ -178,11 +158,54 @@ apt-get install -y firefox-trunk
 # clean all unrequired packages
 apt-get autoremove -y
 
-# create helper scripts
+echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+echo "              Create helper scripts               "
+echo "Create 'gui.sh' to start GUI"
 echo "sudo startxfce4&" > gui.sh
 chmod a+x gui.sh
 
+echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+echo "          Fetching B2G repository                 "
 
+if [ -d B2G/.git ]
+then
+    echo "The git directory exists."
+    echo "update B2G repository"
+    cd B2G
+    git pull
+    cd ..
+else
+    rm B2G/README.md
+    git clone https://github.com/mozilla-b2g/B2G.git B2G
+fi
+
+echo "Create 'init_gaia.sh' to fetch gaia source"
+echo "#!/bin/bash
+if [ -d gaia/.git ]
+then
+    gaia pull
+else
+    if [ -d gaia/README.md ]
+    then
+        rm gaia/README.md
+    fi
+    cd gaia
+    git clone https://github.com/mozilla-b2g/gaia.git
+fi" > init_gaia.sh
+chmod a+x init_gaia.sh
+
+
+# Vagrant script
 SCRIPT
 
 # Detect if B2G_PATH is exist
@@ -235,7 +258,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provider "virtualbox" do |v|
     # Enable GUI
     v.gui = true
-
     # Enable 4GB of RAM
     v.customize ["modifyvm", :id, "--memory", "4096"]
     # Enable usb
