@@ -165,18 +165,13 @@ echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔═�
 echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "              Create helper scripts               "
-echo "Create 'gui.sh' to start GUI"
+
+echo "          Create 'gui.sh' to start GUI            "
 echo "sudo startxfce4&" > gui.sh
 chmod a+x gui.sh
 
-echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
-echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
-echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
-echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
-echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
-echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
-echo "          Fetching B2G repository                 "
-
+echo "   Create 'init_B2G.sh to fetch B2G repository    "
+echo "#!/bin/bash
 if [ -d B2G/.git ]
 then
     echo "The git directory exists."
@@ -186,21 +181,28 @@ then
     cd ..
 else
     rm B2G/README.md
+    # purge mac temp
+    rm B2G/.DS_Store
+    echo "clone B2G repository"
     git clone https://github.com/mozilla-b2g/B2G.git B2G
-fi
+fi" > init_B2G.sh
+chmod a+x init_B2G.sh
 
-echo "Create 'init_gaia.sh' to fetch gaia source"
+echo "   Create 'init_gaia.sh' to fetch gaia source    "
 echo "#!/bin/bash
 if [ -d gaia/.git ]
 then
-    gaia pull
-else
-    if [ -d gaia/README.md ]
-    then
-        rm gaia/README.md
-    fi
+    echo "The git directory exists."
+    echo "update gaia repository"
     cd gaia
-    git clone https://github.com/mozilla-b2g/gaia.git
+    gaia pull
+    cd ..
+else
+    rm gaia/README.md
+    # purge mac temp
+    rm gaia/.DS_Store
+    echo "clone gaia repository"
+    git clone https://github.com/mozilla-b2g/gaia.git gaia
 fi" > init_gaia.sh
 chmod a+x init_gaia.sh
 
