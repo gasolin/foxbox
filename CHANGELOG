@@ -1,0 +1,16 @@
+0.4 2014/2/9
+- besides b2g, able to use custom gecko or gaia by GECKO_PATH and GAIA_PATH.
+- provide gaia_init script
+- add CHANGELOG
+
+0.3 2014/2/5
+- With GUI (xfce4)
+- Firefox Nightly preinstalled
+- add more usb filters
+- add license
+- fix add-apt-repository issue
+- add trouble shooting section in README
+
+0.2 2014/1/28
+- Expose Complele USB rules for all vendors
+- add FoxBox ASCII Art
