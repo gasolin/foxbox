@@ -186,7 +186,7 @@ else
     echo "clone B2G repository"
     git clone https://github.com/mozilla-b2g/B2G.git B2G
 fi" > init_B2G.sh
-chmod a+x init_B2G.sh
+chmod a+x B2G_init.sh
 
 echo "   Create 'init_gaia.sh' to fetch gaia source    "
 echo "#!/bin/bash
@@ -204,7 +204,7 @@ else
     echo "clone gaia repository"
     git clone https://github.com/mozilla-b2g/gaia.git gaia
 fi" > init_gaia.sh
-chmod a+x init_gaia.sh
+chmod a+x gaia_init.sh
 
 
 # Vagrant script

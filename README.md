@@ -66,7 +66,7 @@ Connect to VM via command
 
 Then FoxBox provide an init script to help you fetch B2G source:
 
-    $ ./init_B2G.sh
+    $ ./B2G_init.sh
 
 Then go to B2G folder and type
 
@@ -78,6 +78,8 @@ refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first
 
 Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
 
+All B2G related helper scripts are prefixed by `B2G_`.
+
 #### Build Gaia only
 
 Connect to VM via command
@@ -86,7 +88,7 @@ Connect to VM via command
 
 Then FoxBox provide an init script to help you fetch gaia source:
 
-    $ ./init_gaia.sh
+    $ ./gaia_init.sh
 
 Then go to gaia folder and type
 
@@ -94,6 +96,8 @@ Then go to gaia folder and type
     $ make DEBUG=1
 
 refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
+
+All gaia related helper scripts are prefixed by `gaia_`.
 
 #### Build Gecko only
 
@@ -106,6 +110,7 @@ Then
     $ cd gecko
     $ make -f client.mk build
 
+All gecko related helper scripts are prefixed by `gecko_`.
 
 ### Step 3: Test in GUI
 
