@@ -1,7 +1,7 @@
 FoxBox
 ===========
 
-Version: 0.4
+Version: 0.4.3
 
 FirefoxOS Build Environment in a VM (Virtual Machine).
 Powered by vagrant and virtualbox.
@@ -68,13 +68,15 @@ Then FoxBox provide an init script to help you fetch B2G source:
 
     $ ./B2G_init.sh
 
-Then go to B2G folder and type
+Refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
+Go to B2G folder and type
 
     $ cd B2G
-    $ ./configure.sh {your device}
+    $ ./configure.sh emulator
     $ ./build.sh
 
-refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
+The above instruction takes several hours.
+Once the compile process is done, go to step 3 to launch emulator in GUI.
 
 Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
 
@@ -123,6 +125,13 @@ Run the command To start the GUI (powered by [xfce](http://www.xfce.org/)):
 The `firefox nightly` is located in the top left `Applications Menu > internet > Nightly Web Browser`.
 
 ![Imgur](http://i.imgur.com/7nhNUC3.png)
+
+To start emulator, press `Application Menu > Terminal Emulator` from left top and run command:
+
+    $ B2G/run-emulator.sh
+
+![Imgur](http://i.imgur.com/NRuv7DK.png)
+
 
 ## Trouble Shooting
 

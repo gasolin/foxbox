@@ -1,3 +1,9 @@
+0.5 2014/2/10
+- pre-configure emulator build library dependency
+- able to start emulator in GUI
+- fix reop fetch failed by add bridge network
+- fix wordlist error if any previous install is not complete
+
 0.4 2014/2/9
 - besides b2g, able to use custom gecko or gaia by GECKO_PATH and GAIA_PATH.
 - provide gaia_init script
