@@ -256,6 +256,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # change it to something else).
   # Configure as host-only ip
   config.vm.network "private_network", ip: "192.168.50.4"
+  # Configure as public DHCP, to make repo sync works
+  config.vm.network "public_network"
+  # Configure as DHCP with default bridge
+  # config.vm.network "public_network", :bridge => 'en0: Wi-Fi (AirPort)'
 
   # Use *_PATH environment variable to sync with vm's /home/vagrant/*
   # directory.
