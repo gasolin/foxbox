@@ -133,7 +133,7 @@ echo "█████╗  ██║   ██║ ╚███╔╝ ████�
 echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
 echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
-echo "                Install Java                      "
+echo "             Install Java for adb                 "
 # Not sure if it's necessary but the build complaints about the Java version.
 apt-get purge -y openjdk*
 add-apt-repository -y ppa:webupd8team/java
@@ -166,6 +166,15 @@ echo "██║     ╚██████╔╝██╔╝ ██╗███�
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "              Create helper scripts               "
 
+echo "   configure git                                  "
+cat > ~/.gitconfig <<EOF
+[user]
+  name = My name
+  email = me@mail.com
+[color]
+  ui = auto
+EOF
+
 echo "   Create 'gui.sh' to start GUI                   "
 echo "sudo startxfce4&" > gui.sh
 chmod a+x gui.sh
@@ -185,7 +194,7 @@ else
     rm B2G/.DS_Store
     echo "clone B2G repository"
     git clone https://github.com/mozilla-b2g/B2G.git B2G
-fi" > init_B2G.sh
+fi" > B2G_init.sh
 chmod a+x B2G_init.sh
 
 echo "   Create 'init_gaia.sh' to fetch gaia source    "
@@ -203,7 +212,7 @@ else
     rm gaia/.DS_Store
     echo "clone gaia repository"
     git clone https://github.com/mozilla-b2g/gaia.git gaia
-fi" > init_gaia.sh
+fi" > gaia_init.sh
 chmod a+x gaia_init.sh
 
 
@@ -243,6 +252,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Assign static IP to be able to use nfs option (if you have a conflict,
   # change it to something else).
+  # Configure as host-only ip
   config.vm.network "private_network", ip: "192.168.50.4"
 
   # Use *_PATH environment variable to sync with vm's /home/vagrant/*
