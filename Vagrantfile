@@ -26,6 +26,8 @@ echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔═�
 echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "       Installing all build prerequisites         "
+echo "detecting if any previous install isn't complete..."
+/usr/share/debconf/fix_db.pl
 apt-get update
 # add firefox nightly repo
 apt-get install python-software-properties -y
