@@ -53,6 +53,12 @@ add-apt-repository -y ppa:nilarimogard/webupd8
 apt-get update
 apt-get install -y autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-multilib git ia32-libs lib32ncurses5-dev lib32z1-dev libgl1-mesa-dev libx11-dev libasound2 make zip android-tools-adb
 
+echo "Install libraries to overcome emulator build issues"
+apt-get install -y libgl1-mesa-dev libglapi-mesa:i386 libgl1-mesa-glx:i386
+sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
+sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+sudo apt-get install -y binutils-gold
+
 # Set ccache max size to 3GB
 ccache --max-size 3GB
 
@@ -168,7 +174,7 @@ echo "██║     ╚██████╔╝██╔╝ ██╗███�
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "              Create helper scripts               "
 
-echo "   configure git                                  "
+echo "   Configure git                                  "
 cat > ~/.gitconfig <<EOF
 [user]
   name = My name
