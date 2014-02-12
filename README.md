@@ -118,7 +118,11 @@ It will install mercurial, clone gecko source  to `gecko` folder, and put the b2
 Then go to gecko folder and type
 
     $ cd gecko
-    $ make -f client.mk build
+    $ ./mach build
+
+If you saw 'please rerun mach' message, run the command again:
+
+    $ ./mach build
 
 All gecko related helper scripts are prefixed by `gecko_`.
 
