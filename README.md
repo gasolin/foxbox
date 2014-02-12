@@ -60,7 +60,7 @@ Though the VM already popup a separate window. You can still remote access to VM
 
 #### Build whole FirefoxOS (B2G)
 
-Connect to VM via command
+Make sure you've synced local `B2G` folder to VM via command
 
     $ B2G_PATH=<local path> vagrant up
 
@@ -68,6 +68,7 @@ Then FoxBox provide an init script to help you fetch B2G source:
 
     $ ./B2G_init.sh
 
+It will clone B2G source to `B2G` folder.
 Refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
 Go to B2G folder and type
 
@@ -84,7 +85,7 @@ All B2G related helper scripts are prefixed by `B2G_`.
 
 #### Build Gaia only
 
-Connect to VM via command
+Make sure you've synced local `gaia` folder to VM via command
 
     $ GAIA_PATH=<local path> vagrant up
 
@@ -92,6 +93,7 @@ Then FoxBox provide an init script to help you fetch gaia source:
 
     $ ./gaia_init.sh
 
+It will clone gaia source to `gaia` folder.
 Then go to gaia folder and type
 
     $ cd gaia
@@ -103,11 +105,17 @@ All gaia related helper scripts are prefixed by `gaia_`.
 
 #### Build Gecko only
 
-Connect to VM via command
+Make sure you've synced local `gecko` folder to VM via command
 
     $ GECKO_PATH=<local path> vagrant up
 
-Then
+Then FoxBox provide an init script to help you fetch gecko source:
+
+    $ ./gecko_init.sh
+
+It will install mercurial, clone gecko source  to `gecko` folder, and put the b2g client build config in `gecko/.mozconfig`.
+
+Then go to gecko folder and type
 
     $ cd gecko
     $ make -f client.mk build
