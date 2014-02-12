@@ -25,7 +25,13 @@ Prepare:
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
 
-On linux or mac, run `configure.sh`. The script will download B2G repository to your Host OS and start vagrant to setup VM for you.
+### In Ubuntu 12.04
+
+If you have a device with Ubuntu version 12.04 (Long term support),
+you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
+
+### In VM
+On linux or mac, run `configure.sh`. The script will download basic ubuntu 12.04 image to your Host OS and start vagrant to setup the VM for you.
 
 On other platform, start the setup process
 
