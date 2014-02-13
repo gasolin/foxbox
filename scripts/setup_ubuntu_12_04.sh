@@ -196,7 +196,7 @@ then
     echo "The directory exists."
     echo "update gecko repository"
     cd gecko
-    hg pull
+    hg pull -u
     #git pull
     cd ..
 else
@@ -223,8 +223,9 @@ else
     echo \"# turn on mozTelephony/mozSms interfaces\" >> gecko/.mozconfig
     echo \"# Only turn this line on if you actually have a dev phone\" >> gecko/.mozconfig
     echo \"# you want to forward to. If you get crashes at startup,\" >> gecko/.mozconfig
-    echo \"# make sure this line is commented.\" >> gecko/.mozconfig
-    echo \"#ac_add_options --enable-b2g-ril\" >> gecko/.mozconfig
+    echo \"# make sure this line is commented.\"     >> gecko/.mozconfig
+    echo \"#ac_add_options --enable-b2g-ril\"        >> gecko/.mozconfig
+    echo "done. You can start build gecko with command: \'./mach build\'."
 fi" > gecko_init.sh
 chmod a+x gecko_init.sh
 
