@@ -188,20 +188,22 @@ chmod a+x B2G_init.sh
 echo "   Create 'init_gecko.sh' to fetch gecko source    "
 echo "#!/bin/bash
 # https://developer.mozilla.org/en-US/docs/Developer_Guide/Build_Instructions/Linux_Prerequisites
-sudo apt-get install -y zip unzip mercurial g++ make autoconf2.13 yasm libgtk2.0-dev libglib2.0-dev libdbus-1-dev libdbus-glib-1-dev libasound2-dev libcurl4-openssl-dev libiw-dev libxt-dev mesa-common-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libpulse-dev
-if [ -d gecko/.hg ]
+sudo apt-get install -y zip unzip g++ make autoconf2.13 yasm libgtk2.0-dev libglib2.0-dev libdbus-1-dev libdbus-glib-1-dev libasound2-dev libcurl4-openssl-dev libiw-dev libxt-dev mesa-common-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libpulse-dev
+if [ -d gecko/.git ]
 then
-    echo "The hg directory exists."
+    echo "The git directory exists."
     echo "update gecko repository"
     cd gecko
-    hg pull
+    #hg pull
+    git pull
     cd ..
 else
     rm gecko/README.md
     # purge mac temp
     rm gecko/.DS_Store
     echo "clone gecko repository"
-    hg clone http://hg.mozilla.org/mozilla-central gecko
+    #hg clone http://hg.mozilla.org/mozilla-central gecko
+    git clone https://github.com/mozilla/gecko-dev gecko
     echo "create .mozconfig file in gecko"
     rm gecko/.mozconfig
     echo \"mk_add_options MOZ_OBJDIR=../build\"      > gecko/.mozconfig

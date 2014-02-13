@@ -132,6 +132,8 @@ If you saw 'please rerun mach' message, run the command again:
 
 All gecko related helper scripts are prefixed by `gecko_`.
 
+You can refer to [the full build guide](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_B2G_desktop_client)
+
 ### Step 3: Test in GUI
 
 To test Firefox OS, you'll need the graphical display of VM. ssh does not support GUI.
