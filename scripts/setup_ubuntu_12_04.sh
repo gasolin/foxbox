@@ -167,6 +167,10 @@ echo "   Create 'gui.sh' to start GUI                   "
 echo "sudo startxfce4&" > gui.sh
 chmod a+x gui.sh
 
+echo "   Create 'home.sh' to go back to correct home    "
+echo "cd /home/vagrant" > /root/home.sh
+chmod a+x /root/home.sh
+
 echo "   Create 'init_B2G.sh' to fetch B2G repository    "
 echo "#!/bin/bash
 if [ -d B2G/.git ]
@@ -187,23 +191,24 @@ chmod a+x B2G_init.sh
 
 echo "   Create 'init_gecko.sh' to fetch gecko source    "
 echo "#!/bin/bash
-# https://developer.mozilla.org/en-US/docs/Developer_Guide/Build_Instructions/Linux_Prerequisites
-sudo apt-get install -y zip unzip g++ make autoconf2.13 yasm libgtk2.0-dev libglib2.0-dev libdbus-1-dev libdbus-glib-1-dev libasound2-dev libcurl4-openssl-dev libiw-dev libxt-dev mesa-common-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libpulse-dev
-if [ -d gecko/.git ]
+if [ -d gecko/.hg ]
 then
-    echo "The git directory exists."
+    echo "The directory exists."
     echo "update gecko repository"
     cd gecko
-    #hg pull
-    git pull
+    hg pull
+    #git pull
     cd ..
 else
     rm gecko/README.md
     # purge mac temp
     rm gecko/.DS_Store
+    echo "setup gecko build environment"
+    # https://developer.mozilla.org/en-US/docs/Developer_Guide/Build_Instructions/Linux_Prerequisites
+    wget https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py && python bootstrap.py
     echo "clone gecko repository"
-    #hg clone http://hg.mozilla.org/mozilla-central gecko
-    git clone https://github.com/mozilla/gecko-dev gecko
+    hg clone http://hg.mozilla.org/mozilla-central gecko
+    #git clone https://github.com/mozilla/gecko-dev gecko
     echo "create .mozconfig file in gecko"
     rm gecko/.mozconfig
     echo \"mk_add_options MOZ_OBJDIR=../build\"      > gecko/.mozconfig
