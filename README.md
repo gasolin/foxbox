@@ -8,9 +8,10 @@ Powered by vagrant and virtualbox.
 
 ## Features
 
+- Setup environment and required libraries automatically
+- Compile in VM, flash to device directly
 - Edit source code in your host machine with any editor and have the files sync into the guest machine.
-- Compile in VM without setup environment and required libraries
-- Can test Firefox Nightly or B2G Desktop in bundled GUI environment
+- Can test Emulator or Firefox Nightly in bundled GUI environment
 
 ## Prerequisite
 
@@ -20,7 +21,7 @@ You have to download and install [Virtualbox](https://www.virtualbox.org/wiki/Do
 
 Prepare:
 
-[Download](https://github.com/gasolin/foxbox/archive/master.zip) or Clone https://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
+[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
 
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
@@ -132,7 +133,7 @@ If you saw 'please rerun mach' message, run the command again:
 
 All gecko related helper scripts are prefixed by `gecko_`.
 
-You can refer to [the full build guide](https://developer.mozilla.org/en-US/Firefox_OS/Using_the_B2G_desktop_client)
+You can refer to [the full build guide](http://developer.mozilla.org/en-US/Firefox_OS/Using_the_B2G_desktop_client)
 
 ### Step 3: Test in GUI
 
@@ -207,7 +208,7 @@ As it seems `-f` or `--force-broken` flag allows it to recover from network erro
 
 ## Credit
 
-Foxbox is based on the [gist](https://gist.github.com/yzen/7723421) by Yura Zenevich.
+Foxbox is based on the [gist](http://gist.github.com/yzen/7723421) by Yura Zenevich.
 
 ## License
 
