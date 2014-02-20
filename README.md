@@ -175,6 +175,8 @@ If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280
 From foxbox 0.6 it will add extra bridge network in settings to make sure the repository fetching works more smoothly.
 It require you select the network interface for outgoing network when you vagrant up the VM.
 
+![Imgur](http://i.imgur.com/XegEyMh.png)
+
 You could disable it by editing Vagrantfile and comment out
 
     config.vm.network "public_network"
