@@ -22,11 +22,9 @@ echo "██║     ╚██████╔╝██╔╝ ██╗███�
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "             Install git and repo                 "
 apt-get install -y git-core
-if [ -f /bin/repo ]
-then
-    curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /bin/repo
-    chmod a+x /bin/repo
-fi
+# force update repo
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /bin/repo
+chmod a+x /bin/repo
 
 echo "        Install prerequisite libraries            "
 add-apt-repository -y ppa:nilarimogard/webupd8
@@ -161,13 +159,14 @@ echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚════�
 echo "              Create helper scripts               "
 
 echo "   Configure git                                  "
-cat > ~/.gitconfig <<EOF
-[user]
-  name = My name
-  email = me@mail.com
-[color]
-  ui = auto
-EOF
+if [ -f .gitconfig]
+then
+    echo "[user]"
+    echo "     name = My name"
+    echo "    email = me@mail.com"
+    echo "[color]"
+    echo "    ui = auto"
+fi > .gitconfig
 
 echo "   Create 'gui.sh' to start GUI                   "
 echo "sudo startxfce4&" > gui.sh
@@ -242,13 +241,19 @@ then
     echo "The git directory exists."
     echo "update gaia repository"
     cd gaia
-    gaia pull
+    #gaia pull
+    repo sync
     cd ..
 else
     rm gaia/README.md
     # purge mac temp
     rm gaia/.DS_Store
     echo "clone gaia repository"
-    git clone https://github.com/mozilla-b2g/gaia.git gaia
+    #git clone https://github.com/mozilla-b2g/gaia.git gaia
+    # use git-repo instead of clone gaia directly
+    cd gaia
+    repo init -u https://github.com/gasolin/gaia-repo.git
+    repo sync
+    cd ..
 fi" > gaia_init.sh
 chmod a+x gaia_init.sh
