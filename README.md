@@ -96,9 +96,13 @@ Make sure you've synced local `gaia` folder to VM via command
 
     $ GAIA_PATH=<local path> vagrant up
 
+(Run `gui.sh` to start the GUI environment if you want test gaia via bundled nightly browser)
+
 Then FoxBox provide an init script to help you fetch gaia source:
 
     $ ./gaia_init.sh
+
+All gaia related helper scripts are prefixed by `gaia_`.
 
 It will clone gaia source to `gaia` folder.
 Then go to gaia folder and type
@@ -108,7 +112,11 @@ Then go to gaia folder and type
 
 refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
 
-All gaia related helper scripts are prefixed by `gaia_`.
+In GUI environment you could pen the Terminal Emulator and run
+
+    $ firefox-trunk -profile /home/vagrant/gaia/profile-debug
+
+![Imgur](http://i.imgur.com/FYE0PE5.png)
 
 #### Build Gecko only
 
