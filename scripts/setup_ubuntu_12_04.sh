@@ -113,6 +113,12 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="0930", MODE="0666", GROUP="vagrant"
 SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", MODE="0666", GROUP="vagrant"
 EOF
 chmod a+r /etc/udev/rules.d/51-android.rules
+# add spectrum rule
+if [ ! -d .android ]
+then
+    mkdir .android
+echo 0x1782 > .android/adb_usb.ini
+fi
 service udev restart
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"

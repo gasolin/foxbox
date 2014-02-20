@@ -90,6 +90,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'lg', '--vendorid', '0x1004']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'qualcomm', '--vendorid', '0x05c6']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'zte', '--vendorid', '0x19d2']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'spreadtrum', '--vendorid', '0x1782']
   end
 
 end
