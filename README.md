@@ -162,6 +162,16 @@ If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280
 
 ![Imgur](http://i.imgur.com/iQyztVf.png)
 
+### Disable bridge
+
+From foxbox 0.6 it will add extra bridge network in settings to make sure the repository fetching works more smoothly.
+It require you select the network interface for outgoing network when you vagrant up the VM.
+
+You could disable it by editing Vagrantfile and comment out
+
+    config.vm.network "public_network"
+
+
 ### Delete the VM
 
 You can run following command to delete the VM anytime.
