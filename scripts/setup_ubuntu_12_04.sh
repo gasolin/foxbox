@@ -257,3 +257,11 @@ else
     cd ..
 fi" > gaia_init.sh
 chmod a+x gaia_init.sh
+
+# helper tool
+if [ ! -d tool ]
+then
+    mkdir tool
+fi
+curl https://raw2.github.com/mozilla/moz-git-tools/master/git-patch-to-hg-patch > tool/git-patch-to-hg-patch
+chmod a+x git-patch-to-hg-patch
