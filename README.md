@@ -26,12 +26,14 @@ Prepare:
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
 
+Note: if your virtualbox did not run correctly, you may need to modify your BIOS to enable VT-x/hardware virtualization features on your motherboard.
+
 ### In Ubuntu 12.04
 
-If you have a device with Ubuntu version 12.04 (Long term support),
+If you have a device with Ubuntu version 12.04 (Long term support) installed,
 you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
 
-### In VM
+### In Virtual Machine
 On linux or mac, run `configure.sh`. The script will download basic ubuntu 12.04 image to your Host OS and start vagrant to setup the VM for you.
 
 On other platform, start the setup process
