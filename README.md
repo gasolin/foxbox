@@ -1,7 +1,7 @@
 FoxBox
 ===========
 
-Version: 0.5
+Version: 0.6
 
 FirefoxOS Build Environment in a VM (Virtual Machine).
 Powered by vagrant and virtualbox.

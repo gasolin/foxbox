@@ -1,3 +1,20 @@
+0.6 2014/2/27
+feature:
+- add reload.sh shortcut
+- add tool/git-patch-to-hg-patch
+- ensure gaia can be run on firefox nighly(trunk)
+- add spectrum usb rule
+- provide gecko_init script to fetch and setup gecko environment (gecko build not fully work yet)
+
+fix:
+- fix config scripts that is needed for Ubuntu 12.04
+- add vm bridge to make data fetching more smoothly
+
+change
+- separate build script from Vagrantfile for Host OS reuse
+- fetch gecko by git
+- use gaia-repo instead of clone gaia directly
+
 0.5 2014/2/10
 - pre-configure emulator build library dependency
 - able to start emulator in GUI
