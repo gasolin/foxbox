@@ -263,5 +263,5 @@ if [ ! -d tool ]
 then
     mkdir tool
 fi
-curl https://raw2.github.com/mozilla/moz-git-tools/master/git-patch-to-hg-patch > tool/git-patch-to-hg-patch
-chmod a+x git-patch-to-hg-patch
+curl https://raw.github.com/mozilla/moz-git-tools/master/git-patch-to-hg-patch > tool/git-patch-to-hg-patch
+chmod a+x tool/git-patch-to-hg-patch
