@@ -5,13 +5,10 @@ Version: 0.6
 
 Battery included FirefoxOS Build Environment.
 
-You could use FoxBox to setup your FirefoxOS Build Environment with:
+You could use FoxBox to setup your FirefoxOS Build Environment with following 2 approaches:
 
 - Auto-configured VM (Virtual Machine) powered by vagrant and virtualbox.
-
-or 
-
-- Ubuntu 12.04(LTS) install script
+- Config by Ubuntu 12.04(LTS) install script
 
 FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development.
 
@@ -32,14 +29,17 @@ Prepare:
     $ cd foxbox
 
 
-### In Ubuntu 12.04
+## In Ubuntu 12.04
 
 If you have a device with Ubuntu version 12.04 (Long term support) installed,
 you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
 
-### In Virtual Machine
+You might want to disable `Enable GUI` part in `setup_ubuntu_12_04.sh`, which will install extra GUI environment.
 
-## Prerequisite
+
+## In Virtual Machine
+
+### Prerequisite
 
 You MUST download and install [Virtualbox](https://www.virtualbox.org/wiki/Downloads) & [Vagrant](http://www.vagrantup.com/downloads) before you start using foxbox.
 
