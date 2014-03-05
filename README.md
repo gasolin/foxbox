@@ -3,8 +3,17 @@ FoxBox
 
 Version: 0.6
 
-FirefoxOS Build Environment in a VM (Virtual Machine).
-Powered by vagrant and virtualbox.
+Battery included FirefoxOS Build Environment.
+
+You could use FoxBox to setup your FirefoxOS Build Environment with:
+
+- Auto-configured VM (Virtual Machine) powered by vagrant and virtualbox.
+
+or 
+
+- Ubuntu 12.04(LTS) install script
+
+FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development.
 
 ## Features
 
@@ -12,6 +21,23 @@ Powered by vagrant and virtualbox.
 - Compile in VM, flash to device directly
 - Edit source code in your host machine with any editor and have the files sync into the guest machine.
 - Can test Emulator or Firefox Nightly in bundled GUI environment
+
+## How to Run
+
+Prepare:
+
+[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
+
+    $ git clone https://github.com/gasolin/foxbox.git
+    $ cd foxbox
+
+
+### In Ubuntu 12.04
+
+If you have a device with Ubuntu version 12.04 (Long term support) installed,
+you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
+
+### In Virtual Machine
 
 ## Prerequisite
 
@@ -27,27 +53,6 @@ Compile a full OS is a resource consumption task. Your machine SHOULD reserve fo
 [Ref: What is virtualization](http://en.wikipedia.org/wiki/X86_virtualization)
 
 
-## How to Run
-
-Prepare:
-
-[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
-
-    $ git clone https://github.com/gasolin/foxbox.git
-    $ cd foxbox
-
-Note: if your virtualbox did not run correctly with the following message: 
-
-    The guest machine entered an invalid state while waiting for it to boot.
-
-You may need to modify your BIOS to enable VT-x/hardware virtualization features on your motherboard.
-
-### In Ubuntu 12.04
-
-If you have a device with Ubuntu version 12.04 (Long term support) installed,
-you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
-
-### In Virtual Machine
 On linux or mac, run `configure.sh`. The script will download basic ubuntu 12.04 image to your Host OS and start vagrant to setup the VM for you.
 
 On other platform, start the setup process
@@ -59,6 +64,13 @@ You have to enter password in Linux/Mac to proceed share the NFS folders.
 It will take time to download and setup the environment. Go have a cup of coffee.
 
 (If foxbox is stablized, we'd like to ship a preconfigured box to save your time and bandwidth)
+
+Note: if your virtualbox did not run correctly with the following message: 
+
+    The guest machine entered an invalid state while waiting for it to boot.
+
+You may need to modify your BIOS to enable VT-x/hardware virtualization features on your motherboard.
+
 
 ### Step 1: Use your VM
 
