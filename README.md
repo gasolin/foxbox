@@ -17,6 +17,11 @@ Powered by vagrant and virtualbox.
 
 You have to download and install [Virtualbox](https://www.virtualbox.org/wiki/Downloads) & [Vagrant](http://www.vagrantup.com/downloads) before you start using foxbox.
 
+Compile a full OS is a resource consumption task. Your machine SHOULD reserve following creteria for VM
+- have VT-x/hardware virtualization support (which usually means i5 or i7, atom CPU is not sufficient).
+- at least 4GB ram
+- about 40GB space (for full OS, 5~10GB for gaia or gecko)
+
 ## How to Run
 
 Prepare:
@@ -26,7 +31,11 @@ Prepare:
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
 
-Note: if your virtualbox did not run correctly, you may need to modify your BIOS to enable VT-x/hardware virtualization features on your motherboard.
+Note: if your virtualbox did not run correctly with the following message: 
+
+    The guest machine entered an invalid state while waiting for it to boot.
+
+You may need to modify your BIOS to enable VT-x/hardware virtualization features on your motherboard.
 
 ### In Ubuntu 12.04
 
