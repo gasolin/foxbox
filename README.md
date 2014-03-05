@@ -18,9 +18,11 @@ Powered by vagrant and virtualbox.
 You have to download and install [Virtualbox](https://www.virtualbox.org/wiki/Downloads) & [Vagrant](http://www.vagrantup.com/downloads) before you start using foxbox.
 
 Compile a full OS is a resource consumption task. Your machine SHOULD reserve following creteria for VM
-- have VT-x/hardware virtualization support (which usually means i5 or i7, atom CPU is not sufficient).
+- have hardware virtualization support sych as INTEL VT-x/AMD-V(which usually means i5 or i7, atom CPU is not sufficient). Mac/Windows 8 already enable it.
 - at least 4GB ram
 - about 40GB space (for full OS, 5~10GB for gaia or gecko)
+
+[Guide to enable visualization in BIOS](http://www.sysprobs.com/disable-enable-virtualization-technology-bios)
 
 ## How to Run
 
