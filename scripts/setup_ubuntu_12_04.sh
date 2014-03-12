@@ -159,7 +159,7 @@ echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚════�
 echo "              Create helper scripts               "
 
 echo "   Configure git                                  "
-if [ -f .gitconfig]
+if [ -f .gitconfig ]
 then
     echo "[user]"
     echo "     name = My name"
