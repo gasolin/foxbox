@@ -45,9 +45,9 @@ You MUST download and install [Virtualbox](https://www.virtualbox.org/wiki/Downl
 
 Compile a full OS is a resource consumption task. Your machine SHOULD reserve following creteria for VM
 
-- have hardware virtualization support sych as INTEL VT-x/AMD-V(which usually means i5 or i7, atom CPU is not sufficient). Mac/Windows 8 already enable it. ([Guide to enable visualization in BIOS](http://www.sysprobs.com/disable-enable-virtualization-technology-bios))
-- at least 4GB ram
-- about 40GB space (for full OS, 5~10GB for gaia or gecko)
+- have hardware virtualization support such as INTEL VT-x/AMD-V(which usually means i5 or i7, atom CPU is not sufficient). Mac/Windows 8 already enable it. ([Guide to enable visualization in BIOS](http://www.sysprobs.com/disable-enable-virtualization-technology-bios))
+- at least 4GB RAM
+- about 40GB disk space (for full OS, 5~10GB for gaia or gecko)
 
 
 [Ref: What is virtualization](http://en.wikipedia.org/wiki/X86_virtualization)
