@@ -201,8 +201,8 @@ then
     echo "The directory exists."
     echo "update gecko repository"
     cd gecko
-    #hg pull -u
-    git pull
+    hg pull -u
+#    git pull
     cd ..
 else
     rm gecko/README.md
@@ -212,8 +212,8 @@ else
     # https://developer.mozilla.org/en-US/docs/Developer_Guide/Build_Instructions/Linux_Prerequisites
     wget https://hg.mozilla.org/mozilla-central/raw-file/default/python/mozboot/bin/bootstrap.py && python bootstrap.py
     echo "clone gecko repository"
-    #hg clone http://hg.mozilla.org/mozilla-central gecko
-    git clone https://github.com/mozilla/gecko-dev gecko
+    hg clone http://hg.mozilla.org/mozilla-central gecko
+    #git clone https://github.com/mozilla/gecko-dev gecko
     echo "create .mozconfig file in gecko"
     rm gecko/.mozconfig
     echo \"mk_add_options MOZ_OBJDIR=../build\"      > gecko/.mozconfig
