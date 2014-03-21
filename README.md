@@ -258,6 +258,11 @@ As it seems `-f` or `--force-broken` flag allows it to recover from network erro
   - Firefox Desktop
   - Firefox for Android
 
+## Community
+
+* [Google+ forum](https://plus.google.com/communities/109304362439467302985)
+* [Issue list](https://github.com/gasolin/foxbox/issues?state=open)
+
 ## Credit
 
 Foxbox is based on the [gist](http://gist.github.com/yzen/7723421) by Yura Zenevich.
