@@ -12,6 +12,8 @@ You could use FoxBox to setup your FirefoxOS Build Environment with following 2 
 
 FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development.
 
+(`battery included` is a term from python language, which denotes 'include everything user needed when he/she unbox', so they can experience it directly without finding elsewhere. )
+
 ## Features
 
 - Setup environment and required libraries automatically
