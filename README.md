@@ -84,7 +84,11 @@ In linux/mac you could use `${PWD}/B2G` instead of real `<local path>`.
 
 Log in with `the account 'vagrant', password 'vagrant'` in VM's console.
 
-Disconnect to VM
+If you don't want any file sync-up with Host OS, you could just run
+
+    $ vagrant up
+
+To disconnect VM, use following commands
 
     $ exit
     $ vagrant halt
@@ -92,6 +96,10 @@ Disconnect to VM
 Though the VM already popup a separate window. You can still remote access to VM via command:
 
     $ vagrant ssh
+
+When you reopen VM second time, it will be start with GUI environment.
+
+To access Terminal in GUI environment, open `Start Menu > System Tools > XTerm` or `UXTerm`.
 
 ### Step 2: Build FirefoxOS
 
@@ -142,7 +150,7 @@ Then go to gaia folder and type
 
 refer to https://developer.mozilla.org/en-US/Firefox_OS/Platform/Gaia/Hacking
 
-In GUI environment you could pen the Terminal Emulator and run
+In GUI environment you could open the Terminal Emulator and run
 
     $ firefox-trunk -profile /home/vagrant/gaia/profile-debug
 
@@ -176,7 +184,7 @@ You can refer to [the full build guide](http://developer.mozilla.org/en-US/Firef
 ### Step 3: Test in GUI
 
 To test Firefox OS, you'll need the graphical display of VM. ssh does not support GUI.
-Run the command To start the GUI (powered by [xfce](http://www.xfce.org/)):
+Run the command To start the GUI (powered by [lxde](http://www.lxde.org/)):
 
     $ ./gui.sh
 
@@ -194,12 +202,6 @@ To start emulator, press `Application Menu > Terminal Emulator` from left top an
 
 ## Trouble Shooting
 
-### GUI Usage
-
-If you found [no prompt in Terminal Emulator](http://askubuntu.com/questions/280896/why-do-i-have-no-prompt-in-terminal-on-xfce-in-ubuntu-12-04). The reason is a color setting found in Edit->Profile Preferences where it said "Colors" and defaulted to "Use colors from system theme". Uncheck it and everything runs fine.
-
-![Imgur](http://i.imgur.com/iQyztVf.png)
-
 ### Disable bridge
 
 From foxbox 0.6 it will add extra bridge network in settings to make sure the repository fetching works more smoothly.
@@ -210,7 +212,6 @@ It require you select the network interface for outgoing network when you vagran
 You could disable it by editing Vagrantfile and comment out
 
     config.vm.network "public_network"
-
 
 ### Delete the VM
 

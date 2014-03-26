@@ -141,9 +141,11 @@ echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔═�
 echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "                Enable GUI                        "
-#apt-get install -y x-window-system gnome-core
-# xorg xfce4 menu
-apt-get install -y x-window-system xfce4
+/usr/share/debconf/fix_db.pl
+apt-get update
+apt-get install -y lxde-core lightdm-gtk-greeter
+# Remove Ubuntu start manager
+update-rc.d -f lightdm remove
 # get firefox nightly
 apt-get install -y firefox-trunk
 
@@ -169,7 +171,7 @@ then
 fi > .gitconfig
 
 echo "   Create 'gui.sh' to start GUI                   "
-echo "sudo startxfce4&" > gui.sh
+echo "sudo startx" > gui.sh
 chmod a+x gui.sh
 
 echo "   Create 'home.sh' to go back to correct home    "
