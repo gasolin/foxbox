@@ -224,9 +224,9 @@ The shared folders will be detached and the VM will be deleted. The basic vagran
 
 If there's any issue that make the setup process fail. You can re-run the configure process by following command:
 
-    $ reload.sh
+    $ launch.sh
 
-Which provide a shortcut to do the following operation for you.
+It will update to latest foxbox and provide a shortcut to do the following operation for you.
 
     $ B2G_PATH=${PWD}/B2G vagrant reload --provision
 
