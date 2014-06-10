@@ -46,14 +46,13 @@ end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "precise64"
+  # Use ubuntu 12.04
+  config.vm.box = "hashicorp/precise64"
 
   # Run the bootsrap script on start.
   # config.vm.provision "shell", inline: $bootstrap
   config.vm.provision "shell", path: "scripts/setup_ubuntu_12_04.sh"
 
-  # Use ubuntu 12.04
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Assign static IP to be able to use nfs option (if you have a conflict,
   # change it to something else).
