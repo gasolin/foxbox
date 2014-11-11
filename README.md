@@ -1,7 +1,7 @@
 FoxBox
 ===========
 
-Version: 0.6
+Version: 0.6 (NOTE FoxBox IS NOT ACTIVLY MAINTAINED)
 
 Battery included FirefoxOS Build Environment.
 
