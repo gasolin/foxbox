@@ -1,7 +1,7 @@
 FoxBox
 ===========
 
-Version: 0.6 (NOTE FoxBox IS NOT ACTIVLY MAINTAINED)
+Version: 0.7 (NOTE FoxBox IS NOT ACTIVLY MAINTAINED)
 
 Battery included FirefoxOS Build Environment.
 
@@ -32,6 +32,12 @@ Prepare:
     $ GAIA_PATH=${PWD}/gaia vagrant up
 
 Then follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you.
+
+Inside of virtualbox, run command:
+
+    $ gaia_init.sh
+
+to clone gaia source code. Or you could use normal way to git clone [gaia](https://github.com/mozilla-b2g/gaia).
 
 ## In Virtual Machine
 
