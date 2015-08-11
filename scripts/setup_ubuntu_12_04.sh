@@ -143,16 +143,16 @@ echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔═�
 echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
 echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
 echo "                Enable GUI                        "
-/usr/share/debconf/fix_db.pl
-apt-get update
-apt-get install -y lxde-core lightdm-gtk-greeter
+#/usr/share/debconf/fix_db.pl
+#apt-get update
+#apt-get install -y lxde-core lightdm-gtk-greeter
 # Remove Ubuntu start manager
-update-rc.d -f lightdm remove
+#update-rc.d -f lightdm remove
 # get firefox nightly
-apt-get install -y firefox-trunk
+#apt-get install -y firefox-trunk
 
 # clean all unrequired packages
-apt-get autoremove -y
+#apt-get autoremove -y
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
 echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
@@ -245,19 +245,19 @@ then
     echo "The git directory exists."
     echo "update gaia repository"
     cd gaia
-    #gaia pull
-    repo sync
+    gaia pull
+    #repo sync
     cd ..
 else
     rm gaia/README.md
     # purge mac temp
     rm gaia/.DS_Store
     echo "clone gaia repository"
-    #git clone https://github.com/mozilla-b2g/gaia.git gaia
+    git clone https://github.com/mozilla-b2g/gaia.git gaia
     # use git-repo instead of clone gaia directly
-    cd gaia
-    repo init -u https://github.com/gasolin/gaia-repo.git
-    repo sync
+    #cd gaia
+    #repo init -u https://github.com/gasolin/gaia-repo.git
+    #repo sync
     cd ..
 fi" > gaia_init.sh
 chmod a+x gaia_init.sh
