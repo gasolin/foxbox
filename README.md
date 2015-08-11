@@ -29,15 +29,9 @@ Prepare:
 
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
+    $ GAIA_PATH=${PWD}/gaia vagrant up
 
-
-## In Ubuntu 12.04
-
-If you have a device with Ubuntu version 12.04 (Long term support) installed,
-you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
-
-You might want to disable `Enable GUI` part in `setup_ubuntu_12_04.sh`, which will install extra GUI environment.
-
+Then follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you.
 
 ## In Virtual Machine
 
@@ -101,32 +95,16 @@ When you reopen VM second time, it will be start with GUI environment.
 
 To access Terminal in GUI environment, open `Start Menu > System Tools > XTerm` or `UXTerm`.
 
+
+## In Ubuntu 12.04
+
+If you have a device with Ubuntu version 12.04 (Long term support) installed,
+you could run auto-setup script `setup_ubuntu_12_04.sh` within the script folder directly without VM.
+
+You might want to disable `Enable GUI` part in `setup_ubuntu_12_04.sh`, which will install extra GUI environment.
+
+
 ### Step 2: Build FirefoxOS
-
-#### Build whole FirefoxOS (B2G)
-
-Make sure you've synced local `B2G` folder to VM via command
-
-    $ B2G_PATH=<local path> vagrant up
-
-Then FoxBox provide an init script to help you fetch B2G source:
-
-    $ ./B2G_init.sh
-
-It will clone B2G source to `B2G` folder.
-Refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
-Go to B2G folder and type
-
-    $ cd B2G
-    $ ./configure.sh emulator
-    $ ./build.sh
-
-The above instruction takes several hours.
-Once the compile process is done, go to step 3 to launch emulator in GUI.
-
-Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
-
-All B2G related helper scripts are prefixed by `B2G_`.
 
 #### Build Gaia only
 
@@ -155,6 +133,33 @@ In GUI environment you could open the Terminal Emulator and run
     $ firefox-trunk -profile /home/vagrant/gaia/profile-debug
 
 ![Imgur](http://i.imgur.com/FYE0PE5.png)
+
+
+#### Build whole FirefoxOS (B2G)
+
+Make sure you've synced local `B2G` folder to VM via command
+
+    $ GAIA_PATH=<local path> vagrant up
+
+Then FoxBox provide an init script to help you fetch B2G source:
+
+    $ ./B2G_init.sh
+
+It will clone B2G source to `B2G` folder.
+Refer to https://developer.mozilla.org/en-US/Firefox_OS/Preparing_for_your_first_B2G_build
+Go to B2G folder and type
+
+    $ cd B2G
+    $ ./configure.sh emulator
+    $ ./build.sh
+
+The above instruction takes several hours.
+Once the compile process is done, go to step 3 to launch emulator in GUI.
+
+Basically the above instruction can build all FirefoxOS for you including gecko and gaia. But you could build gaia or gecko independently to debug specific part of FirefoxOS.
+
+All B2G related helper scripts are prefixed by `B2G_`.
+
 
 #### Build Gecko only
 
