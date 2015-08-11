@@ -82,5 +82,5 @@ if [ "$DIST" == "Ubuntu" ]; then
     sudo apt-get install -y dkms nfs-kernel-server nfs-common
 fi
 
-echo "start vagrant with ${PWD}/B2G"
-B2G_PATH=${PWD}/B2G vagrant up
+echo "start vagrant with ${PWD}/gaia"
+B2G_PATH=${PWD}/gaia vagrant up
