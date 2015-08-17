@@ -1,17 +1,9 @@
 FoxBox
 ===========
 
-Version: 0.7 (NOTE FoxBox IS NOT ACTIVLY MAINTAINED)
+Version: 0.7
 
-Firefox OS(Gaia) Build Environment in VM.
-
-You could use FoxBox to setup your FirefoxOS Build Environment with following 2 approaches:
-
-- Auto-configured VM (Virtual Machine) powered by vagrant and virtualbox.
-- Config by Ubuntu 12.04(LTS) install script
-
-FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. It take about 1hr to auto setup (depends on net speed).
-
+FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. Currently foxbox take about one hour to auto setup (depends on net speed) a Firefox OS (Gaia) build environment in VM.
 
 ## Features
 
@@ -36,6 +28,7 @@ Inside of virtualbox, run command:
     $ gaia_init.sh
 
 to clone gaia source code. Or you could use normal way to git clone [gaia](https://github.com/mozilla-b2g/gaia).
+
 
 If you need more support, read [wiki](https://github.com/gasolin/foxbox/wiki) for more instructions.
 
