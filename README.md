@@ -3,35 +3,33 @@ FoxBox
 
 Version: 0.7 (NOTE FoxBox IS NOT ACTIVLY MAINTAINED)
 
-Battery included FirefoxOS Build Environment.
+Firefox OS(Gaia) Build Environment in VM.
 
 You could use FoxBox to setup your FirefoxOS Build Environment with following 2 approaches:
 
 - Auto-configured VM (Virtual Machine) powered by vagrant and virtualbox.
 - Config by Ubuntu 12.04(LTS) install script
 
-FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development.
+FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. It take about 1hr to auto setup (depends on net speed).
 
-(`battery included` is a term from python language, which denotes 'include everything user needed when he/she unbox', so they can experience it directly without finding elsewhere. )
 
 ## Features
 
 - Setup environment and required libraries automatically
 - Compile in VM, flash to device directly
 - Edit source code in your host machine with any editor and have the files sync into the guest machine.
-- Can test Emulator or Firefox Nightly in bundled GUI environment
 
 ## How to Run
 
 Prepare:
 
-[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder:
+[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder and type commands:
 
     $ git clone https://github.com/gasolin/foxbox.git
     $ cd foxbox
     $ GAIA_PATH=${PWD}/gaia vagrant up
 
-Then follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you.
+Follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you. (the default vagrant box username/password is `vagrant/vagrant`)
 
 Inside of virtualbox, run command:
 
@@ -39,7 +37,11 @@ Inside of virtualbox, run command:
 
 to clone gaia source code. Or you could use normal way to git clone [gaia](https://github.com/mozilla-b2g/gaia).
 
+
+
 ## In Virtual Machine
+
+If you haven't install Virtualbox or vagrant, read the following instructions.
 
 ### Prerequisite
 
