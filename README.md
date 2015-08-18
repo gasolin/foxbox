@@ -17,9 +17,11 @@ Prepare:
 
 [Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Then enter the foxbox folder and type commands:
 
-    $ git clone https://github.com/gasolin/foxbox.git
-    $ cd foxbox
-    $ GAIA_PATH=${PWD}/gaia vagrant up
+```
+$ git clone https://github.com/gasolin/foxbox.git
+$ cd foxbox
+$ ./configure.sh
+```
 
 Follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you. (the default vagrant box username/password is `vagrant/vagrant`)
 
