@@ -83,4 +83,4 @@ if [ "$DIST" == "Ubuntu" ]; then
 fi
 
 echo "start vagrant with ${PWD}/gaia"
-B2G_PATH=${PWD}/gaia vagrant up
+GAIA_PATH=${PWD}/gaia vagrant up

@@ -1,3 +1,7 @@
+0.7 2015/8/11
+change:
+- reconfig for gaia first, user can setup environment within ~1hr
+
 0.6 2014/2/27
 feature:
 - add reload.sh shortcut
