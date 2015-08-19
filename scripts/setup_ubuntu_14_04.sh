@@ -8,11 +8,13 @@ echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚════�
 echo "       Installing all build prerequisites         "
 echo "detecting if any previous install isn't complete..."
 /usr/share/debconf/fix_db.pl
+# tell system that I want to support 32-bit packages
+dpkg --add-architecture i386
 apt-get update
-# add firefox nightly repo
 apt-get install python-software-properties -y
-add-apt-repository ppa:ubuntu-mozilla-daily/ppa -y
-apt-get update
+# add firefox nightly repo
+#add-apt-repository ppa:ubuntu-mozilla-daily/ppa -y
+#apt-get update
 
 echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
 echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
@@ -28,16 +30,21 @@ chmod a+x /bin/repo
 
 echo "        Install prerequisite libraries            "
 add-apt-repository -y ppa:nilarimogard/webupd8
+#add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu/ raring main restricted universe multiverse"
 apt-get update
-apt-get install -y autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-multilib git ia32-libs lib32ncurses5-dev lib32z1-dev libgl1-mesa-dev libx11-dev libasound2 make zip android-tools-adb
-# for build flame or nexu 5
-apt-get install -y libxml2-utils
+apt-get install -y --no-install-recommends autoconf2.13 bison bzip2 ccache curl flex gawk gcc g++ g++-multilib gcc-4.7 g++-4.7 g++-4.7-multilib git lib32ncurses5-dev lib32z1-dev libgconf2-dev zlib1g:amd64 zlib1g-dev:amd64 zlib1g:i386 zlib1g-dev:i386 libgl1-mesa-dev libx11-dev make zip libxml2-utils lzop libfontconfig libgtk2.0-dev libasound2 android-tools-adb
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.7 1
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 2
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.7 1
+update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 2
+update-alternatives --set gcc "/usr/bin/gcc-4.7"
+update-alternatives --set g++ "/usr/bin/g++-4.7"
 
-echo "Install libraries to overcome emulator build issues"
-apt-get install -y libgl1-mesa-dev libglapi-mesa:i386 libgl1-mesa-glx:i386
-sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
-sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
-sudo apt-get install -y binutils-gold
+#echo "Install libraries to overcome emulator build issues"
+#apt-get install -y libgl1-mesa-dev libglapi-mesa:i386 libgl1-mesa-glx:i386
+#sudo ln -s /usr/lib/i386-linux-gnu/libX11.so.6 /usr/lib/i386-linux-gnu/libX11.so
+#sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
+#sudo apt-get install -y binutils-gold
 
 # Set ccache max size to 3GB
 ccache --max-size 3GB
@@ -136,13 +143,13 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 apt-get install -y oracle-java7-installer
 
-echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
-echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
-echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
-echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
-echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
-echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
-echo "                Enable GUI                        "
+#echo "███████╗ ██████╗ ██╗  ██╗██████╗  ██████╗ ██╗  ██╗"
+#echo "██╔════╝██╔═══██╗╚██╗██╔╝██╔══██╗██╔═══██╗╚██╗██╔╝"
+#echo "█████╗  ██║   ██║ ╚███╔╝ ██████╔╝██║   ██║ ╚███╔╝ "
+#echo "██╔══╝  ██║   ██║ ██╔██╗ ██╔══██╗██║   ██║ ██╔██╗ "
+#echo "██║     ╚██████╔╝██╔╝ ██╗██████╔╝╚██████╔╝██╔╝ ██╗"
+#echo "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═════╝  ╚═════╝ ╚═╝  ╚═╝"
+#echo "                Enable GUI                        "
 #/usr/share/debconf/fix_db.pl
 #apt-get update
 #apt-get install -y lxde-core lightdm-gtk-greeter
@@ -252,8 +259,8 @@ else
     rm gaia/README.md
     # purge mac temp
     rm gaia/.DS_Store
-    echo "clone gaia repository"
-    git clone https://github.com/mozilla-b2g/gaia.git gaia
+    echo "shallow clone gaia repository"
+    git clone --depth=1 https://github.com/mozilla-b2g/gaia.git gaia
     # use git-repo instead of clone gaia directly
     #cd gaia
     #repo init -u https://github.com/gasolin/gaia-repo.git

@@ -46,12 +46,12 @@ end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  # Use ubuntu 12.04
-  config.vm.box = "hashicorp/precise64"
+  # Use ubuntu 14.04
+  config.vm.box = "ubuntu/trusty64"
 
   # Run the bootsrap script on start.
   # config.vm.provision "shell", inline: $bootstrap
-  config.vm.provision "shell", path: "scripts/setup_ubuntu_12_04.sh"
+  config.vm.provision "shell", path: "scripts/setup_ubuntu_14_04.sh"
 
 
   # Assign static IP to be able to use nfs option (if you have a conflict,
@@ -90,6 +90,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'qualcomm', '--vendorid', '0x05c6']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'zte', '--vendorid', '0x19d2']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'spreadtrum', '--vendorid', '0x1782']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'sony', '--vendorid', '0x0fce']
   end
 
 end
