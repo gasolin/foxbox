@@ -1,3 +1,7 @@
+1.0 2015/8/19
+change:
+- Upgrade base image to Ubuntu 14.04LTS and modify scripts to fit the system change.
+
 0.7 2015/8/11
 change:
 - reconfig for gaia first, user can setup environment within ~1hr
