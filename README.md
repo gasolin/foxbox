@@ -31,9 +31,11 @@ Inside of virtualbox, run command:
 
 ```
 $ gaia_init.sh
+$ cd gaia
+$ make
 ```
 
-to clone gaia source code. Or you could use normal way to git clone [gaia](https://github.com/mozilla-b2g/gaia).
+'gaia_init.sh' script can help you clone gaia source code. Or you could use normal way to git clone [gaia](https://github.com/mozilla-b2g/gaia). Then you should able to compile gaia without any problem.
 
 
 If you need more support, read [wiki](https://github.com/gasolin/foxbox/wiki) for more instructions.
