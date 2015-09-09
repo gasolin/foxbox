@@ -16,6 +16,7 @@ FoxBox project's goal is to try any approach that make new user can do as less a
 ## How to Run
 
 Prepare:
+Install vagrant 1.5 or above (Some distro like Ubuntu now provides 1.4 via apt-get, please download the `.deb` from the [officail download page](https://www.vagrantup.com/downloads.html) instead.)
 
 ```
 $ git clone https://github.com/gasolin/foxbox.git
