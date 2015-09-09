@@ -78,8 +78,8 @@ echo "DIST: $DIST"
 echo "REV: $REV"
 echo "DistroBasedOn: $DistroBasedOn"
 
-if [ "$DIST" == "Ubuntu" ]; then
-    sudo apt-get install -y dkms nfs-kernel-server nfs-common
+if [ "$DIST" == "Ubuntu" ] || [ "$DIST" == "LinuxMint" ]; then
+    sudo apt-get install -y --force-yes dkms nfs-kernel-server nfs-common
 fi
 
 echo "start vagrant with ${PWD}/gaia"

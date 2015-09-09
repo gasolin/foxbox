@@ -152,7 +152,7 @@ apt-get install -y oracle-java7-installer
 #echo "                Enable GUI                        "
 #/usr/share/debconf/fix_db.pl
 #apt-get update
-#apt-get install -y lxde-core lightdm-gtk-greeter
+#apt-get install -y lxde-core lightdm-gtk-greeter xinit
 # Remove Ubuntu start manager
 #update-rc.d -f lightdm remove
 # get firefox nightly
