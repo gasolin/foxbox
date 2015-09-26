@@ -65,21 +65,27 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configure as host-only ip
   config.vm.network "private_network", ip: "192.168.50.4"
   # Configure as public DHCP, to make repo sync works
-  config.vm.network "public_network"
+  #config.vm.network "public_network"
   # Configure as DHCP with default bridge
   # config.vm.network "public_network", :bridge => 'en0: Wi-Fi (AirPort)'
 
   # Use *_PATH environment variable to sync with vm's /home/vagrant/*
   # directory.
+
+  # Windows guide:
+  # remember install winnfsd on windows
+  # $vagrant plugin install vagrant-winnfsd
+  # and replace GAIA_PATH such as "C:\\Users\\lin\\Documents\\GitHub\\foxbox\\gaia" on windows
+
   if (B2G_PATH != nil)
-    config.vm.synced_folder B2G_PATH, "/home/vagrant/B2G", :nfs => !is_windows
+    config.vm.synced_folder B2G_PATH, "/home/vagrant/B2G", type: "nfs"
   end
   if (GECKO_PATH != nil)
-    config.vm.synced_folder GECKO_PATH, "/home/vagrant/gecko", :nfs => !is_windows
+    config.vm.synced_folder GECKO_PATH, "/home/vagrant/gecko", type: "nfs"
   end
-  if (GAIA_PATH != nil)
-    config.vm.synced_folder GAIA_PATH, "/home/vagrant/gaia", :nfs => !is_windows
-  end
+  #if (GAIA_PATH != nil)
+    config.vm.synced_folder GAIA_PATH, "/home/vagrant/gaia", type: "nfs"
+  #end
 
   config.vm.provider "virtualbox" do |v|
     # Enable GUI
