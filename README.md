@@ -1,32 +1,39 @@
 FoxBox
 ===========
 
-Version: 1.0
+Version: 1.1
 
-FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. Currently foxbox take about one hour to auto setup (depends on net speed) a Firefox OS (Gaia) build environment in VM.
+FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. Currently with foxbox, you just take about one hour to auto setup (depends on network download speed) a Firefox OS (Gaia) build environment in VM.
 
 ## Features
 
 - (Relative automaticly) Setup environment and required libraries
 - Edit source code in your host machine with any editor.
 - Run commands in Virtual box (guest machine)
-- Source folder is shared
-- Plug USB to flash device directly
+- Source folder is shared with your host machine
+- Plug USB to debug or flash device
 
 ## How to Run
 
-Prepare:
+For [Windows user, check here for through instructions](https://github.com/gasolin/foxbox/wiki/RunOnWindows).
+
+### Prepare:
+
 Install vagrant 1.5 or above (Some distro like Ubuntu now provides 1.4 via apt-get, please download the `.deb` from the [officail download page](https://www.vagrantup.com/downloads.html) instead.
 
 Virtual Machine is also required, the free option is VirtualBox, downlaod it from the [officail download page](https://www.virtualbox.org/wiki/Downloads).
+
+Then [Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS).
+
+### Install
+
+Enter the foxbox folder, the `configure.sh` script will detect the environment, install required library and run `vagrant up` command.
 
 ```
 $ git clone https://github.com/gasolin/foxbox.git
 $ cd foxbox
 $ ./configure.sh
 ```
-
-[Download](http://github.com/gasolin/foxbox/releases) or Clone http://github.com/gasolin/foxbox.git via `git clone` command to local computer (we call it Host OS). Enter the foxbox folder, the `configure.sh` script will detect the environment, install required library and run `vagrant up` command.
 
 Follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you. (the default vagrant box username/password is `vagrant/vagrant`)
 
@@ -43,13 +50,15 @@ $ make
 
 If you need more support, read [wiki](https://github.com/gasolin/foxbox/wiki) for more instructions.
 
+To learn more about Firefox OS development, check [Hacking Gaia](https://developer.mozilla.org/en-US/Firefox_OS/Developing_Gaia) on MDN as an online reference, or check the ebook [Gaia from above](https://leanpub.com/gaiafromabove) (co-authored by foxbox creator).
+
 ## Community
 
 * [Issue list](https://github.com/gasolin/foxbox/issues?state=open)
 
 ## Credit
 
-Foxbox is based on the [gist](http://gist.github.com/yzen/7723421) by Yura Zenevich (yzen) and is heavily rewriten by Fred Lin (gasolin).
+Foxbox is originally based on the [gist](http://gist.github.com/yzen/7723421) by Yura Zenevich (yzen) and is heavily rewriten by Fred Lin (gasolin).
 
 ## License
 
