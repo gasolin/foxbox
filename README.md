@@ -1,15 +1,18 @@
 FoxBox
 ===========
 
-Version: 1.1
+Version: 1.2
 
-FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development. Currently with foxbox, you just take about one hour to auto setup (depends on network download speed) a Firefox OS (Gaia) build environment in VM.
+ With foxbox, new contributor just take about one hour to auto setup (depends on network download speed) a Firefox OS (Gaia) build environment in VM. You will got a ubuntu VM and can be accessed via browser console.
+
+![Imgur](http://i.imgur.com/F3dlEgl.png?1)
 
 ## Features
 
+- Work on Windows, Mac OSX, linux
 - (Relative automaticly) Setup environment and required libraries
 - Edit source code in your host machine with any editor.
-- Run commands in Virtual box (guest machine)
+- Run commands via web console
 - Source folder is shared with your host machine
 - Plug USB to debug or flash device
 
@@ -53,6 +56,10 @@ If you need more support, read [wiki](https://github.com/gasolin/foxbox/wiki) fo
 To learn more about Firefox OS development, check [Hacking Gaia](https://developer.mozilla.org/en-US/Firefox_OS/Developing_Gaia) on MDN as an online reference, or check the ebook [Gaia from above](https://leanpub.com/gaiafromabove) (co-authored by foxbox creator).
 
 ## Community
+
+FoxBox project's goal is to try any approach that make new user can do as less as possible to start the FirefoxOS development.
+
+Welcome to update instructions or promote foxbox to other contributors.
 
 * [Issue list](https://github.com/gasolin/foxbox/issues?state=open)
 

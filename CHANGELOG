@@ -1,3 +1,12 @@
+1.2 2015/10/2
+change:
+- support web console (via butterfly)
+- remove b2g and gecko script
+
+1.1 2015/9/25
+change:
+- windows support with winnfsd
+
 1.0 2015/8/19
 change:
 - Upgrade base image to Ubuntu 14.04LTS and modify scripts to fit the system change.
