@@ -40,7 +40,9 @@ $ ./configure.sh
 
 Follow instructions on screen to specify internet connection and the root permission password. Now the environment is settled for you. (the default vagrant box username/password is `vagrant/vagrant`)
 
-Inside of virtualbox, run command:
+Open your browser with `127.0.0.1:9000`, the magic happens!
+
+Inside of guest machine or web console, run command:
 
 ```
 $ gaia_init.sh
