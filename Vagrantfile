@@ -58,7 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Run the bootsrap script on start.
   # config.vm.provision "shell", inline: $bootstrap
   config.vm.provision "shell", path: "scripts/setup_ubuntu_14_04.sh"
-
+  config.vm.provision "shell", path: "scripts/startup.sh", run: "always", privileged: false
 
   # Assign static IP to be able to use nfs option (if you have a conflict,
   # change it to something else).
@@ -68,6 +68,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.vm.network "public_network"
   # Configure as DHCP with default bridge
   # config.vm.network "public_network", :bridge => 'en0: Wi-Fi (AirPort)'
+  config.vm.network "forwarded_port", guest: 9000, host:9000
 
   # Use *_PATH environment variable to sync with vm's /home/vagrant/*
   # directory.

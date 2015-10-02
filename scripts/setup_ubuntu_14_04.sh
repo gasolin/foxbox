@@ -119,6 +119,10 @@ echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 apt-get install -y oracle-java7-installer
 
+echo "             Install web console                  "
+apt-get install -y python-pip python-dev
+pip --default-timeout=100 install butterfly
+
 #echo "                Enable GUI                        "
 #/usr/share/debconf/fix_db.pl
 #apt-get update
