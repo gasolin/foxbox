@@ -1,3 +1,4 @@
+#!/bin/bash
 #
 # foxbox auto setup script
 #
